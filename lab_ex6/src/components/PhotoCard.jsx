@@ -1,11 +1,10 @@
 function PhotoCard({ photo }) {
   const { urls, user, alt_description, likes } = photo
-
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
       <img 
         src={urls.small} 
-        alt={alt_description || 'Photo'}
+        alt={alt_description || 'Esports Event'}
         className="w-full h-48 object-cover"
       />
       <div className="p-4">
@@ -18,7 +17,7 @@ function PhotoCard({ photo }) {
           <span className="text-sm font-medium">{user.name}</span>
         </div>
         <p className="text-gray-600 text-sm mb-2">
-          {alt_description || 'Beautiful photo'}
+          {alt_description || 'Esports Event Visual'}
         </p>
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-500">{likes} likes</span>
@@ -27,12 +26,11 @@ function PhotoCard({ photo }) {
             target="_blank"
             className="text-blue-600 text-sm hover:underline"
           >
-            View on Unsplash
+            Unsplash
           </a>
         </div>
       </div>
     </div>
   )
 }
-
 export default PhotoCard

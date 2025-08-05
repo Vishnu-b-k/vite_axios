@@ -5,12 +5,11 @@ function SearchBar({ onSearch, loading }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (query.trim()) {
-      onSearch(query.trim())
-    }
+    if (query.trim()) onSearch(query.trim())
   }
 
-  const quickSearchOptions = ['nature', 'animals', 'technology', 'food', 'travel']
+  // More esports/game-related quick searches
+  const quickSearchOptions = ['esports', 'gaming tournament', 'valorant', 'csgo', 'stage', 'league of legends']
 
   return (
     <div className="mb-8">
@@ -19,8 +18,8 @@ function SearchBar({ onSearch, loading }) {
           <input
             type="text"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search for photos..."
+            onChange={e => setQuery(e.target.value)}
+            placeholder="Search esports tournaments, teams, or games..."
             className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             disabled={loading}
           />
@@ -33,10 +32,9 @@ function SearchBar({ onSearch, loading }) {
           </button>
         </div>
       </form>
-      
       <div className="flex flex-wrap gap-2">
-        <span className="text-sm text-gray-600 mr-2">Quick search:</span>
-        {quickSearchOptions.map((option) => (
+        <span className="text-sm text-gray-600 mr-2">Popular:</span>
+        {quickSearchOptions.map(option => (
           <button
             key={option}
             onClick={() => onSearch(option)}
@@ -50,5 +48,4 @@ function SearchBar({ onSearch, loading }) {
     </div>
   )
 }
-
 export default SearchBar
